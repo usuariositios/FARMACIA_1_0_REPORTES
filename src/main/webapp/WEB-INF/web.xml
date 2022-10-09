@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>PdfServlet</servlet-name>
+        <servlet-class>net.sf.jasperreports.j2ee.servlets.PdfServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PdfServlet</servlet-name>
+        <url-pattern>/servlets/pdf</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>XLSServlet</servlet-name>
+        <servlet-class>reporte.servlet.JasperToExcel</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>XLSServlet</servlet-name>
+        <url-pattern>/servlets/xls</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>qrServlet</servlet-name>
+        <servlet-class>reporte.servlet.QrServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>qrServlet</servlet-name>
+        <url-pattern>/servlets/qr</url-pattern>
+    </servlet-mapping>
+</web-app>

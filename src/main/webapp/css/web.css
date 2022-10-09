@@ -1,0 +1,127 @@
+/* 
+    Document   : web
+    Created on : 29-dic-2013, 11:07:06
+    Author     : henry
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root {
+    display: block;
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        
+}
+.login_empresa{
+    top: 0%;
+    right: 5%;
+    position: absolute;
+    color: white;
+    font-weight: bold;
+}
+.login_usuario{
+    top: 80%;
+    right: 5%;
+    position: absolute;
+    color: white;
+    font-weight: bold;
+}
+.login_gestion{
+    top: 80%;
+    right: 20%;
+    position: absolute;
+    color: white;
+    font-weight: bold;
+}
+.dataTable_class>tbody>tr{
+    background: pink;
+}
+.dataTable_class>tbody>tr:hover{ 
+    background: purple;
+}
+
+.ui-datatable-odd:hover{
+background: #CCF6FF ;/* #79c9ec ;*/
+
+}
+.ui-datatable-even:hover{
+background: #CCF6FF ;/*#75d7f7*/
+
+}
+img{
+    border:0;
+}
+.bordeReporte{
+    border-width: 1px;
+    border-color:#000000;
+    border-style: solid;
+    padding: 0;
+    border-spacing: 0;
+}
+.bordeFilaReporte {outline: thin solid black;font-weight: bold;}
+
+.grid_header {
+  text-align: left;
+}
+.header_reporte{
+    height: 22px;
+    color: #ffffff;
+    /*border-color: 1px solid #123456; */
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;  
+    background-color: #40a0c9;
+}
+.border{
+    border : solid #f3f3f3 1px;
+}
+.border select {
+  border : solid #cccccc 1px;
+  font-family: Verdana;
+  font-size: 9px;
+}
+input
+{
+    -webkit-border-radius: 5px; /*For Safari, etc.*/
+    -moz-border-radius: 5px; /*For Mozilla, etc.*/
+    border-radius: 5px; /*CSS3 Feature*/
+}
+.bordeNegroTd {
+    padding: 5px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-right-color: #CCCCCC;
+    border-bottom-color: #CCCCCC;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+.tablaReportes{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    border-collapse: collapse;
+}
+.bordeArriba{
+    border-top:1px solid #000000;
+}
+.bordeAbajo{
+    border-bottom:1px solid #000000;
+}
+.bordeDerecho{
+    border-right:1px solid #000000;
+}
+.bordeIzquierdo{
+    border-left:1px solid #000000;
+}
+.outputText4{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  color: #000000;
+}
+.outputText2{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+
+}
