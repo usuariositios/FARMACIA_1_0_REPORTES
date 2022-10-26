@@ -67,7 +67,7 @@
             <form>
                     <table align="center"  width="40%"  style="" class="outputText2" >
                         <tr>
-                            <td rowspan="2" width="140px"  ><img src="data:image/jpg;base64,<%=us.logotipoEmpresa%>" width="200" /></td>
+                            <td rowspan="2" width="140px"  ><img src="<%=us.logotipoEmpresa%>" width="200" /></td>
                             <td><b>Cliente :</b></td><td><%=""%></td>
                         </tr>
                         <tr>

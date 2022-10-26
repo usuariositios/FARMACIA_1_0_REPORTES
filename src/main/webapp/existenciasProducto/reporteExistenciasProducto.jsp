@@ -71,7 +71,7 @@
                 <br/>
                 <table align="center" width="40%"  class="outputText2"   >
                     <tr>
-                        <td rowspan="4"  ><img src="data:image/jpg;base64,<%=us.logotipoEmpresa%>" width="200" /></td>
+                        <td rowspan="4"  ><img src="<%=us.logotipoEmpresa%>" width="200" /></td>
                         <td><b>Producto :</b></td><td><%=nombreProducto%></td>
                     </tr>
                     <tr>
@@ -129,6 +129,12 @@
                                      + "<td class='bordeIzquierdo bordeArriba bordeAbajo'>"+totalCantRestante+"</td>"                                     
                                      + "<td class='bordeIzquierdo bordeArriba bordeAbajo bordeDerecho'></td>"
                                      + "</tr>");
+                                out.print("<tr>"                                     
+                                     + "<td class='bordeAbajo' colspan='4'>&nbsp;</td>"                                     
+                                     + "<td class='bordeAbajo'>&nbsp;</td>"
+                                     + "<td class='bordeAbajo'>&nbsp;</td>"                                     
+                                     + "<td class='bordeAbajo'>&nbsp;</td>"
+                                     + "</tr>");
                                 totalCantRestante=0.0;
                                 codigoProducto = rs1.getString("codigo_producto");
                                 nombreProducto = rs1.getString("nombre_producto");
@@ -151,6 +157,7 @@
                                      + "<td class='bordeIzquierdo bordeArriba bordeAbajo'>"+totalCantRestante+"</td>"                                     
                                      + "<td class='bordeIzquierdo bordeArriba bordeAbajo bordeDerecho'></td>"
                                      + "</tr>");
+                                
                                 totalCantRestante=0.0;
                                 codigoProducto = rs1.getString("codigo_producto");
                                 nombreProducto = rs1.getString("nombre_producto");

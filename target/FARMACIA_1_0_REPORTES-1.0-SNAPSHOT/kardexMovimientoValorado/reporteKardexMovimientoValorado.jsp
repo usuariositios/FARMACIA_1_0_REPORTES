@@ -156,7 +156,7 @@ public double saldoInicial(String codProducto, String fechaSaldoInicial, String 
                 <table align="center" width="40%"  style="" class="outputText2" >
                     
                     <tr>
-                        <td rowspan="4"  ><img src="data:image/jpg;base64,<%=us.logotipoEmpresa%>" width="200" /></td>
+                        <td rowspan="4"  ><img src="<%=us.logotipoEmpresa%>" width="200" /></td>
                         <td><b>Producto :</b></td><td><%=nombreProducto%></td>
                     </tr>
                     <tr>

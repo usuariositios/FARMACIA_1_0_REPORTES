@@ -63,7 +63,7 @@
                 <table align="center" width="40%"  style="" class="outputText2" >
                     
                     <tr>
-                        <td rowspan="4"  ><img src="data:image/jpg;base64,<%=us.logotipoEmpresa%>" width="200" /></td>
+                        <td rowspan="4"  ><img src="<%=us.logotipoEmpresa%>" width="200" /></td>
                         <td><b>Producto :</b></td><td><%=nombreProducto%></td>
                     </tr>
                     
@@ -92,7 +92,7 @@
                      Statement st1 = utiles.getCon().createStatement();
                      ResultSet rs1 = st1.executeQuery(consulta);
                      out.print("<div align=center>"+
-                               "<table class='tablaReportes' width='60%'>");
+                               "<table class='tablaReportes' width='40%'>");
                      out.print("<tr>"
                                  +"<th class='bordeArriba bordeIzquierdo bordeAbajo' width='50%'>NOMBRE</th>"
                                  +"<th class='bordeArriba bordeIzquierdo bordeAbajo bordeDerecho' width='50%'>DESCRIPCIÓN</th>"                                 
@@ -101,23 +101,23 @@
                      
                          if(rs1.next()){
                              
-                             out.print("<tr ><td class='bordeIzquierdo'>Imagen:</td><td class='bordeDerecho'><img src='data:image/jpg;base64,"+rs1.getString("imagen_producto")+"' width='200' /></td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Nombre:</td><td class='bordeDerecho'>"+(rs1.getString("nombre_producto")!=null?rs1.getString("nombre_producto"):"")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Descripcion:</td><td class='bordeDerecho'>"+(rs1.getString("descripcion_producto")!=null?rs1.getString("descripcion_producto"):"")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Grupo:</td><td class='bordeDerecho'>"+(rs1.getString("nombre_grupo_producto")!=null?rs1.getString("nombre_grupo_producto"):"")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Sub Grupo:</td><td class='bordeDerecho'>"+(rs1.getString("nombre_sub_grupo")!=null?rs1.getString("nombre_sub_grupo"):"")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Proveedor 1:</td><td class='bordeDerecho'>"+(rs1.getString("nombre_proveedor1")!=null?rs1.getString("nombre_proveedor1"):"")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Proveedor 2:</td><td class='bordeDerecho'>"+(rs1.getString("nombre_proveedor2")!=null?rs1.getString("nombre_proveedor2"):"")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Descripcion Corta:</td><td class='bordeDerecho'>"+(rs1.getString("descripcion_corta_producto")!=null?rs1.getString("descripcion_corta_producto"):"")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Stock Minimo:</td><td class='bordeDerecho'>"+rs1.getDouble("stock_minimo")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Stock Maximo:</td><td class='bordeDerecho'>"+rs1.getDouble("stock_maximo")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Observaciones:</td><td class='bordeDerecho'>"+rs1.getString("observaciones")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Precio Compra:</td><td class='bordeDerecho'>"+rs1.getDouble("precio_compra")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Precio Venta:</td><td class='bordeDerecho'>"+rs1.getDouble("precio_tienda")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Estado:</td><td class='bordeDerecho'>"+(rs1.getString("nombre_estado_registro")!=null?rs1.getString("nombre_estado_registro"):"")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Unidad:</td><td class='bordeDerecho'>"+(rs1.getString("nombre_unidad_medida")!=null?rs1.getString("nombre_unidad_medida"):"")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>% Descuento Maximo:</td><td class='bordeDerecho'>"+rs1.getDouble("porc_desc_max")+"</td></tr>");
-                             out.print("<tr ><td class='bordeIzquierdo'>Codigo de Barras:</td><td class='bordeDerecho'>"+(rs1.getString("cod_barras_producto")!=null?rs1.getString("cod_barras_producto"):"")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Imagen:</td><td class='bordeAbajo bordeDerecho'><img src='"+rs1.getString("imagen_producto")+"' width='200' /></td></tr>");//data:image/jpg;base64,
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho bordeDerecho'>Nombre:</td><td class='bordeAbajo bordeDerecho'>"+(rs1.getString("nombre_producto")!=null?rs1.getString("nombre_producto"):"")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Descripcion:</td><td class='bordeAbajo bordeDerecho'>"+(rs1.getString("descripcion_producto")!=null?rs1.getString("descripcion_producto"):"")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Grupo:</td><td class='bordeAbajo bordeDerecho'>"+(rs1.getString("nombre_grupo_producto")!=null?rs1.getString("nombre_grupo_producto"):"")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Sub Grupo:</td><td class='bordeAbajo bordeDerecho'>"+(rs1.getString("nombre_sub_grupo")!=null?rs1.getString("nombre_sub_grupo"):"")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Proveedor 1:</td><td class='bordeAbajo bordeDerecho'>"+(rs1.getString("nombre_proveedor1")!=null?rs1.getString("nombre_proveedor1"):"")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Proveedor 2:</td><td class='bordeAbajo bordeDerecho'>"+(rs1.getString("nombre_proveedor2")!=null?rs1.getString("nombre_proveedor2"):"")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Descripcion Corta:</td><td class='bordeAbajo bordeDerecho'>"+(rs1.getString("descripcion_corta_producto")!=null?rs1.getString("descripcion_corta_producto"):"")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Stock Minimo:</td><td class='bordeAbajo bordeDerecho'>"+rs1.getDouble("stock_minimo")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Stock Maximo:</td><td class='bordeAbajo bordeDerecho'>"+rs1.getDouble("stock_maximo")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Observaciones:</td><td class='bordeAbajo bordeDerecho'>"+rs1.getString("observaciones")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Precio Compra:</td><td class='bordeAbajo bordeDerecho'>"+rs1.getDouble("precio_compra")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Precio Venta:</td><td class='bordeAbajo bordeDerecho'>"+rs1.getDouble("precio_tienda")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Estado:</td><td class='bordeAbajo bordeDerecho'>"+(rs1.getString("nombre_estado_registro")!=null?rs1.getString("nombre_estado_registro"):"")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Unidad:</td><td class='bordeAbajo bordeDerecho'>"+(rs1.getString("nombre_unidad_medida")!=null?rs1.getString("nombre_unidad_medida"):"")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>% Descuento Maximo:</td><td class='bordeAbajo bordeDerecho'>"+rs1.getDouble("porc_desc_max")+"</td></tr>");
+                             out.print("<tr ><td class='bordeIzquierdo bordeAbajo bordeDerecho'>Codigo de Barras:</td><td class='bordeAbajo bordeDerecho'>"+(rs1.getString("cod_barras_producto")!=null?rs1.getString("cod_barras_producto"):"")+"</td></tr>");
                          }
                          out.print("<tr>"
                                      + "<td class='bordeAbajo bordeIzquierdo'>&nbsp;</td>"                                     

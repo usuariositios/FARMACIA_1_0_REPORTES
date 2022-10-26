@@ -72,15 +72,16 @@
                 %>
                 <h3 align="center" class="outputText2">REPORTE DE PRODUCTOS VENCIDOS</h3>
                 <br/>
-                <table align="center" width="40%"  class="outputText2"   >
+                <!--table align="center" width="40%"  class="outputText2"   >
                     <tr>
-                        <td rowspan="4"  ><img src="data:image/jpg;base64,<%=us.logotipoEmpresa%>" width="200" /></td>
+                        <td rowspan="4"  ><img src="<%=us.logotipoEmpresa%>" width="200" /></td>
                         <td><b>Almacen :</b></td><td><%=nombreProducto%></td>
                     </tr>
                     <tr>
                         <td><b>A fecha:</b></td><td><%=fechaInicio%></td>
                     </tr>                    
-                </table><br/><br/>                
+                </table-->
+             <br/><br/>                
              <%
                      
                  
@@ -104,7 +105,7 @@
                              + " INNER JOIN PUBLIC.ESTADOS_REGISTRO E ON E.COD_ESTADO_REGISTRO = IVD.COD_ESTADO_REGISTRO"
                              + " WHERE IV.COD_ALMACEN_VENTA = '"+codAlmacenVenta+"'"
                              + "	AND IVD.CANT_RESTANTE > 0	AND IV.COD_GESTION = '"+codGestion+"' "
-                             + " ORDER BY DIAS_POR_VENCER ASC ) A WHERE A.DIAS_POR_VENCER <"+diasPorVencer+" ";
+                             + " ORDER BY DIAS_POR_VENCER ASC ) A WHERE A.DIAS_POR_VENCER <="+diasPorVencer+" ";
                      
                      System.out.println("consulta " + consulta);
                      Statement st1 = utiles.getCon().createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);

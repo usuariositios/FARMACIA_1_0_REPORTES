@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="reporteSalidasAlmacen"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="612"
+		 pageHeight="792"
+		 columnWidth="612"
+		 columnSpacing="0"
+		 leftMargin="0"
+		 rightMargin="0"
+		 topMargin="0"
+		 bottomMargin="0"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="cod_salida_venta" isForPrompting="true" class="java.lang.Integer"/>
+	<parameter name="logo" isForPrompting="false" class="java.io.InputStream"/>
+	<parameter name="SUBREPORT_DIR" isForPrompting="true" class="java.lang.String">
+		<defaultValueExpression ><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString><![CDATA[SELECT	ia.cod_salida_venta,ia.nro_salida_venta,ia.fecha_salida_venta ,td.nombre_campo  nombre_tipo_salida_venta,
+ a.nombre_almacen_venta,ia.glosa,p.ap_paterno_personal||' '||p.ap_materno_personal||' '||p.nombres_personal nombre_personal,a.nombre_almacen_venta,e.logotipo_empresa
+ FROM ventas.salidas_venta ia 
+ inner join ventas.tabla_detalle td ON  td.cod_campo = ia.cod_tipo_salida_venta 
+ INNER JOIN ventas.tabla t ON t.cod_tabla   = td.cod_tabla AND     t.nombre_tabla = 'TIPOS_SALIDA_VENTA' 
+ inner join ventas.almacenes_venta a on a.cod_almacen_venta = ia.cod_almacen_venta
+ inner join ventas.sucursal_ventas sv on sv.cod_sucursal = a.cod_sucursal_venta
+ inner join public.empresa e on e.cod_empresa = sv.cod_empresa
+ left outer join public.personal p on p.cod_personal = ia.cod_personal_autoriza
+ where ia.cod_salida_venta = $P{cod_salida_venta}]]></queryString>
+
+	<field name="cod_salida_venta" class="java.lang.Integer"/>
+	<field name="nro_salida_venta" class="java.lang.Integer"/>
+	<field name="fecha_salida_venta" class="java.sql.Timestamp"/>
+	<field name="nombre_tipo_salida_venta" class="java.lang.String"/>
+	<field name="nombre_almacen_venta" class="java.lang.String"/>
+	<field name="glosa" class="java.lang.String"/>
+	<field name="nombre_personal" class="java.lang.String"/>
+	<field name="logotipo_empresa" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="1"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="113"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="28"
+						y="11"
+						width="555"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[SALIDA DE ALMACEN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="117"
+						y="37"
+						width="85"
+						height="15"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Tahoma" pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Nro.Salida:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="117"
+						y="52"
+						width="85"
+						height="15"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Tahoma" pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Fecha:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="101"
+						y="67"
+						width="101"
+						height="15"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Tahoma" pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Tipo de Salida:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="117"
+						y="82"
+						width="85"
+						height="15"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Tahoma" pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Glosa:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="356"
+						y="37"
+						width="88"
+						height="15"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Almacen:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="356"
+						y="52"
+						width="88"
+						height="15"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Tahoma" pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Personal:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="207"
+						y="37"
+						width="125"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Tahoma"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{nro_salida_venta}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yyyy" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="207"
+						y="52"
+						width="125"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Tahoma"/>
+					</textElement>
+				<textFieldExpression   class="java.sql.Timestamp"><![CDATA[$F{fecha_salida_venta}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="207"
+						y="67"
+						width="125"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Tahoma" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nombre_tipo_salida_venta}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="448"
+						y="37"
+						width="128"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Tahoma" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nombre_almacen_venta}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="448"
+						y="52"
+						width="126"
+						height="15"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Tahoma"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nombre_personal}]]></textFieldExpression>
+				</textField>
+				<image  isUsingCache="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="28"
+						y="33"
+						width="73"
+						height="59"
+						key="image-1"/>
+					<box></box>
+					<graphicElement stretchType="NoStretch"/>
+					<imageExpression class="java.io.InputStream"><![CDATA[]]></imageExpression>
+				</image>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="206"
+						y="82"
+						width="183"
+						height="24"
+						key="textField"
+						stretchType="RelativeToBandHeight"
+						isRemoveLineWhenBlank="true"
+						isPrintInFirstWholeBand="true"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font fontName="Tahoma" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{glosa}]]></textFieldExpression>
+				</textField>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="40"  isSplitAllowed="true" >
+				<subreport  isUsingCache="true">
+					<reportElement
+						mode="Transparent"
+						x="17"
+						y="1"
+						width="563"
+						height="26"
+						key="subreport-1"/>
+					<subreportParameter  name="cod_salida_venta">
+						<subreportParameterExpression><![CDATA[$F{cod_salida_venta}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression  class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "reporteSalidasAlmacenDetalle.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="2"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

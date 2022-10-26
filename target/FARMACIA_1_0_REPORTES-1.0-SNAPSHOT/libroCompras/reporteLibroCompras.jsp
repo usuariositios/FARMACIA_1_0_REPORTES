@@ -73,7 +73,7 @@
                 <table align="center" width="40%"  style="" class="outputText2" >
                     
                     <tr>
-                        <td rowspan="4"  ><img src="data:image/jpg;base64,<%=us.logotipoEmpresa%>" width="200" /></td>
+                        <td rowspan="4"  ><img src="<%=us.logotipoEmpresa%>" width="200" /></td>
                         <td><b>Gestion :</b></td><td><%=nombreGestion%></td>
                     </tr>
                     <tr>
